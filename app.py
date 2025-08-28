@@ -38,8 +38,9 @@ st.set_page_config(page_title="Passport Photo Generator", layout="centered")
 st.title("🛂 Passport Photo Generator")
 st.markdown("Upload a photo to remove its background and convert it to passport photo size for different countries.")
 
-uploaded_file = st.file_uploader("📤 Upload your photo", type=["jpg", "jpeg", "png"])
-country = st.selectbox("🌍 Select passport size:", list(passport_sizes_in.keys()))
+# Move inputs to sidebar
+uploaded_file = st.sidebar.file_uploader("📤 Upload your photo", type=["jpg", "jpeg", "png"])
+country = st.sidebar.selectbox("🌍 Select passport size:", list(passport_sizes_in.keys()))
 
 if uploaded_file and country:
     image_bytes = uploaded_file.read()
